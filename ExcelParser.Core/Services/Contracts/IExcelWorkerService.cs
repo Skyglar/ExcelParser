@@ -12,12 +12,6 @@ namespace ExcelParser.Core.Services.Contracts
         Task<OperationResult> AddRows(IFormFile file);
         Task<OperationResult> UpdateRows(IFormFile file);
         Task<OperationResult> DeleteRowById(int id);
-
-
-
-        //Task CreateExcelDocument();
-        //Task<int> AddRows(ICollection<Row> list);
-        //Task<int> UpdateRows(ICollection<Row> entities);
-        //Task<int> DeleteRowById(int id);
+        Task<OperationResult> CreateExcelDocument(List<Row> rows);
     }
 }

@@ -34,7 +34,6 @@ namespace ExcelParser.Core.Controllers
                 return BadRequest(new { value = "No file was send" });
             }
 
-
             return Ok();
         }
     }

@@ -4,6 +4,7 @@ namespace ExcelParser.Common.Helpers
 {
     public sealed class DefaultWorkSheetBuilder
     {
+        // Maybe move this method to WorkBookHelper and make it static
         public WorkSheet BuildDefaultWorkSheet(WorkBook workBook)
         {
             WorkSheet workSheet = workBook.DefaultWorkSheet;

@@ -42,7 +42,7 @@ namespace ExcelParser.Core.Services
 
                 if (result.Success)
                 {
-                    WorkSheet worksheet = ConvertFileToWorkbook(file).DefaultWorkSheet;
+                    WorkSheet worksheet = WorkBookHelper.ConvertFileToWorkbook(file).DefaultWorkSheet;
 
                     LinkedList<Row> rowList = worksheet.ToRowEntityList();
 
@@ -62,13 +62,14 @@ namespace ExcelParser.Core.Services
             {
                 OperationResult result = _excelValidator.ValidateExcelDocument(file);
 
-                WorkSheet worksheet = ConvertFileToWorkbook(file).DefaultWorkSheet;
+                WorkSheet worksheet = WorkBookHelper.ConvertFileToWorkbook(file).DefaultWorkSheet;
 
                 LinkedList<Row> rowList = worksheet.ToRowEntityList();
 
                 if (result.Success)
                 {
                     int effectedRowCount = _spreadsheetRepository.UpdateRange(rowList);
+
                     if (effectedRowCount < 1)
                     {
                         result.Success = false;
@@ -98,20 +99,16 @@ namespace ExcelParser.Core.Services
 
         // TODO Refactor method
         public Task<OperationResult> CreateExcelDocument(List<Row> rows)
-            => (Task<OperationResult>)Task.Factory.StartNew(() =>
+            => Task.Factory.StartNew(() =>
             {
-                //default file format is XLSX, we can override it using CreatingOptions
                 WorkBook workbook = WorkBook.Create(ExcelFileFormat.XLSX);
-                // TODO Should I inject factory or make it static?
                 WorkSheet worksheet = new DefaultWorkSheetBuilder().BuildDefaultWorkSheet(workbook);
 
-                // TODO Maybe use dictionary to iterate through the object ?
-                // factory to create objects from list? what's the point if I'll still need hardcode object values?
                 for (int i = 0, j = 2; i < rows.Count; i++, j++)
                 {
-                    var columnIndexes = ColumnValues.GetColumnAdresses(j);
+                    //var columnIndexes = ColumnValues.GetColumnAdresses(j);
 
-                    worksheet[columnIndexes[0]].Value = rows[i].Hie;
+                    worksheet[$"A{j}"].Value = rows[i].Hie;
                     worksheet[$"B{j}"].Value = rows[i].IDX;
                     worksheet[$"C{j}"].Value = rows[i].Level;
                     worksheet[$"D{j}"].Value = rows[i].Parent;
@@ -125,19 +122,10 @@ namespace ExcelParser.Core.Services
                     worksheet[$"L{j}"].Value = rows[i].Between_Hi;
                 }
 
-                // TODO safe name of file in different table in db
+                // TODO safe name of file
                 workbook.SaveAs("example_workbook.xlsx");
+
+                return new OperationResult();
             });
-
-        private WorkBook ConvertFileToWorkbook(IFormFile file)
-        {
-            WorkBook workBook;
-            using (Stream stream = file.OpenReadStream())
-            {
-                workBook = WorkBook.FromStream(stream);
-            }
-
-            return workBook;
-        }
     }
 }
