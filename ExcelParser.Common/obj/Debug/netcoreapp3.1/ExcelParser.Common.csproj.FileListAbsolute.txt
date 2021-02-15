@@ -1,0 +1,12 @@
+E:\courses\2. C#\ExcelParser\ExcelParser.Common\obj\Debug\netcoreapp3.1\ExcelParser.Common.csprojAssemblyReference.cache
+E:\courses\2. C#\ExcelParser\ExcelParser.Common\obj\Debug\netcoreapp3.1\ExcelParser.Common.AssemblyInfoInputs.cache
+E:\courses\2. C#\ExcelParser\ExcelParser.Common\obj\Debug\netcoreapp3.1\ExcelParser.Common.AssemblyInfo.cs
+E:\courses\2. C#\ExcelParser\ExcelParser.Common\obj\Debug\netcoreapp3.1\ExcelParser.Common.csproj.CoreCompileInputs.cache
+E:\courses\2. C#\ExcelParser\ExcelParser.Common\bin\Debug\netcoreapp3.1\ExcelParser.Common.deps.json
+E:\courses\2. C#\ExcelParser\ExcelParser.Common\bin\Debug\netcoreapp3.1\ExcelParser.Common.dll
+E:\courses\2. C#\ExcelParser\ExcelParser.Common\bin\Debug\netcoreapp3.1\ExcelParser.Common.pdb
+E:\courses\2. C#\ExcelParser\ExcelParser.Common\bin\Debug\netcoreapp3.1\ExcelParser.Domain.dll
+E:\courses\2. C#\ExcelParser\ExcelParser.Common\bin\Debug\netcoreapp3.1\ExcelParser.Domain.pdb
+E:\courses\2. C#\ExcelParser\ExcelParser.Common\obj\Debug\netcoreapp3.1\ExcelParser.Common.csproj.CopyComplete
+E:\courses\2. C#\ExcelParser\ExcelParser.Common\obj\Debug\netcoreapp3.1\ExcelParser.Common.dll
+E:\courses\2. C#\ExcelParser\ExcelParser.Common\obj\Debug\netcoreapp3.1\ExcelParser.Common.pdb

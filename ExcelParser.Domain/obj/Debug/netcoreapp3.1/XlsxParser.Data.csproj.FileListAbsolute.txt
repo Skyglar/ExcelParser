@@ -1,0 +1,12 @@
+E:\courses\2. C#\XlsxParser\XlsxParser.Data\bin\Debug\netcoreapp3.1\XlsxParser.Data.deps.json
+E:\courses\2. C#\XlsxParser\XlsxParser.Data\bin\Debug\netcoreapp3.1\XlsxParser.Data.dll
+E:\courses\2. C#\XlsxParser\XlsxParser.Data\bin\Debug\netcoreapp3.1\XlsxParser.Data.pdb
+E:\courses\2. C#\XlsxParser\XlsxParser.Data\obj\Debug\netcoreapp3.1\XlsxParser.Data.csprojAssemblyReference.cache
+E:\courses\2. C#\XlsxParser\XlsxParser.Data\obj\Debug\netcoreapp3.1\XlsxParser.Data.AssemblyInfoInputs.cache
+E:\courses\2. C#\XlsxParser\XlsxParser.Data\obj\Debug\netcoreapp3.1\XlsxParser.Data.AssemblyInfo.cs
+E:\courses\2. C#\XlsxParser\XlsxParser.Data\obj\Debug\netcoreapp3.1\XlsxParser.Data.csproj.CoreCompileInputs.cache
+E:\courses\2. C#\XlsxParser\XlsxParser.Data\obj\Debug\netcoreapp3.1\XlsxParser.Data.dll
+E:\courses\2. C#\XlsxParser\XlsxParser.Data\obj\Debug\netcoreapp3.1\XlsxParser.Data.pdb
+E:\courses\2. C#\XlsxParser\XlsxParser.Data\bin\Debug\netcoreapp3.1\XlsxParser.Data.runtimeconfig.json
+E:\courses\2. C#\XlsxParser\XlsxParser.Data\bin\Debug\netcoreapp3.1\XlsxParser.Data.runtimeconfig.dev.json
+E:\courses\2. C#\XlsxParser\XlsxParser.Data\obj\Debug\netcoreapp3.1\XlsxParser.Data.genruntimeconfig.cache

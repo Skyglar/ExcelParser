@@ -1,0 +1,12 @@
+E:\courses\2. C#\XlsxParser\XlsxParser.Domain\obj\Debug\netcoreapp3.1\XlsxParser.Domain.csprojAssemblyReference.cache
+E:\courses\2. C#\XlsxParser\XlsxParser.Domain\obj\Debug\netcoreapp3.1\XlsxParser.Domain.AssemblyInfoInputs.cache
+E:\courses\2. C#\XlsxParser\XlsxParser.Domain\obj\Debug\netcoreapp3.1\XlsxParser.Domain.AssemblyInfo.cs
+E:\courses\2. C#\XlsxParser\XlsxParser.Domain\obj\Debug\netcoreapp3.1\XlsxParser.Domain.csproj.CoreCompileInputs.cache
+E:\courses\2. C#\XlsxParser\XlsxParser.Domain\bin\Debug\netcoreapp3.1\XlsxParser.Domain.deps.json
+E:\courses\2. C#\XlsxParser\XlsxParser.Domain\bin\Debug\netcoreapp3.1\XlsxParser.Domain.runtimeconfig.json
+E:\courses\2. C#\XlsxParser\XlsxParser.Domain\bin\Debug\netcoreapp3.1\XlsxParser.Domain.runtimeconfig.dev.json
+E:\courses\2. C#\XlsxParser\XlsxParser.Domain\bin\Debug\netcoreapp3.1\XlsxParser.Domain.dll
+E:\courses\2. C#\XlsxParser\XlsxParser.Domain\bin\Debug\netcoreapp3.1\XlsxParser.Domain.pdb
+E:\courses\2. C#\XlsxParser\XlsxParser.Domain\obj\Debug\netcoreapp3.1\XlsxParser.Domain.dll
+E:\courses\2. C#\XlsxParser\XlsxParser.Domain\obj\Debug\netcoreapp3.1\XlsxParser.Domain.pdb
+E:\courses\2. C#\XlsxParser\XlsxParser.Domain\obj\Debug\netcoreapp3.1\XlsxParser.Domain.genruntimeconfig.cache

@@ -1,0 +1,12 @@
+E:\courses\2. C#\ExcelParser\ExcelParser.Domain\obj\Debug\netcoreapp3.1\ExcelParser.Domain.AssemblyInfoInputs.cache
+E:\courses\2. C#\ExcelParser\ExcelParser.Domain\obj\Debug\netcoreapp3.1\ExcelParser.Domain.AssemblyInfo.cs
+E:\courses\2. C#\ExcelParser\ExcelParser.Domain\obj\Debug\netcoreapp3.1\ExcelParser.Domain.csproj.CoreCompileInputs.cache
+E:\courses\2. C#\ExcelParser\ExcelParser.Domain\bin\Debug\netcoreapp3.1\ExcelParser.Domain.deps.json
+E:\courses\2. C#\ExcelParser\ExcelParser.Domain\bin\Debug\netcoreapp3.1\ExcelParser.Domain.runtimeconfig.json
+E:\courses\2. C#\ExcelParser\ExcelParser.Domain\bin\Debug\netcoreapp3.1\ExcelParser.Domain.runtimeconfig.dev.json
+E:\courses\2. C#\ExcelParser\ExcelParser.Domain\bin\Debug\netcoreapp3.1\ExcelParser.Domain.dll
+E:\courses\2. C#\ExcelParser\ExcelParser.Domain\bin\Debug\netcoreapp3.1\ExcelParser.Domain.pdb
+E:\courses\2. C#\ExcelParser\ExcelParser.Domain\obj\Debug\netcoreapp3.1\ExcelParser.Domain.dll
+E:\courses\2. C#\ExcelParser\ExcelParser.Domain\obj\Debug\netcoreapp3.1\ExcelParser.Domain.pdb
+E:\courses\2. C#\ExcelParser\ExcelParser.Domain\obj\Debug\netcoreapp3.1\ExcelParser.Domain.genruntimeconfig.cache
+E:\courses\2. C#\ExcelParser\ExcelParser.Domain\obj\Debug\netcoreapp3.1\ExcelParser.Domain.csprojAssemblyReference.cache
