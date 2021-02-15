@@ -29,4 +29,4 @@ ASP.NET Web.Api application for working with excel document
 
 ### P.S.
 - Some Method column values will be marked red on validate request because formula isn't supported
-- Validate method require improvements 
+
