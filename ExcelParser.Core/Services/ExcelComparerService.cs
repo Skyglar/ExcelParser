@@ -63,29 +63,20 @@ namespace ExcelParser.Core.Services
 
                 var allData = currentCells.Concat(dbCells);
 
-                var distinctTest = allData
-                        .GroupBy(cell => cell)
-                        .Where(group => group.ToString().Count() == 1)
-                        .Select(group => group.Key);
+                try
+                {
+                    var uniqueTest = allData
+                        .GroupBy(cell => cell.Value)
+                        .Where(group => group.Count() == 1)
+                        .Select(group => group.Single());
 
-                result.AddRange(distinctTest);
+                    result.AddRange(uniqueTest);
+                }
+                catch (System.Exception)
+                {
+                    continue;
+                }
             }
-
-            //LinkedList<Cell> result = new LinkedList<Cell>();
-            //foreach (var currentCell in currentCells)
-            //{
-            //    foreach (var dbCell in dbCells)
-            //    {
-            //        if (currentCell.Address.ColumnsCount)
-            //        {
-
-            //        }
-            //        if (!currentCell.ToString().Equals(dbCell.ToString()))
-            //        {
-            //            result.AddLast(currentCell);
-            //        }
-            //    }
-            //}
 
             return result;
         }
