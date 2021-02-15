@@ -27,6 +27,5 @@ ASP.NET Web.Api application for working with excel document
   - Body: form-data; key=file, value=excel file
   - https://localhost:44348/api/v1/excel/validation/validate
 
-### P.S.
-- Some Method column values will be marked red on validate request because formula isn't supported
+
 
