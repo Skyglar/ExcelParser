@@ -4,7 +4,7 @@ ASP.NET Web.Api application for working with excel document
 ## Requirements
 - Use Book1.xlsx for testing
 - Created database 'Spreadsheet'
-- Specified connection string in \XlsxParser\XlsxParser\appsettings.json
+- Specified connection string in \ExcelParser.Core\ExcelParser.Core\appsettings.json
 - Software for API testing like Postman
 
 ## URI's:
