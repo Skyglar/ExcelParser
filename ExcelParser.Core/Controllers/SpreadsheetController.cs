@@ -33,7 +33,10 @@ namespace ExcelParser.Core.Controllers
         {
             try
             {
-                return Ok(SuccessResponseBody((List<Row>)await _excelService.GetAllRows()));
+                List<Row> rows = (List<Row>)await _excelService.GetAllRows();
+                //await _excelService.CreateExcelDocument(rows);
+                return Ok(SuccessResponseBody(rows));
+                
             }
             catch (System.Exception exc)
             {

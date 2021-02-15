@@ -7,21 +7,28 @@ namespace ExcelParser.Common.Helpers
     {
         public static Row CreateRowFromCells(Cell[] cells, int index = 0)
         {
-            return new Row()
+            Row row = new Row();
+            row.Hie = cells[index++].StringValue;
+            row.IDX = cells[index++].IntValue;
+            row.Level = cells[index++].IntValue;
+            row.Parent = cells[index++].StringValue;
+            row.Node = cells[index++].StringValue;
+            row.Description = cells[index++].StringValue;
+            try
             {
-                Hie = cells[index++].StringValue,
-                IDX = cells[index++].IntValue,
-                Level = cells[index++].IntValue,
-                Parent = cells[index++].StringValue,
-                Node = cells[index++].StringValue,
-                Description = cells[index++].StringValue,
-                Method = cells[index++].StringValue,
-                Contains_Att = cells[index++].StringValue,
-                Contains_Val = cells[index++].StringValue,
-                Between_Att = cells[index++].StringValue,
-                Between_Lo = cells[index++].DecimalValue,
-                Between_Hi = cells[index++].DecimalValue
-            };
+                row.Method = cells[index++].StringValue;
+            }
+            catch (System.Exception)
+            {
+                row.Method = "Contains";
+            }
+            row.Contains_Att = cells[index++].StringValue;
+            row.Contains_Val = cells[index++].StringValue;
+            row.Between_Att = cells[index++].StringValue;
+            row.Between_Lo = cells[index++].DecimalValue;
+            row.Between_Hi = cells[index++].DecimalValue;
+
+            return row;
         }
     }
 }

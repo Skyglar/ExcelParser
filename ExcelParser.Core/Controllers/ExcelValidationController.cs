@@ -1,4 +1,6 @@
-﻿using ExcelParser.Common.WebApi;
+﻿using ExcelParser.Common.Helpers;
+using ExcelParser.Common.ResponseBuilder.Contracts;
+using ExcelParser.Common.WebApi;
 using ExcelParser.Common.WebApi.RoutingConfiguration;
 using ExcelParser.Core.Services.Contracts;
 using Microsoft.AspNetCore.Http;
@@ -9,13 +11,14 @@ namespace ExcelParser.Core.Controllers
 {
     [ApiController]
     [AssignControllerRoute(WebApiEnvironmnet.Current, WebApiVersion.ApiVersion1, ApplicationSegments.ExcelValidation)]
-    public class ExcelValidationController : ControllerBase
+    public class ExcelValidationController : WebApiControllerBase
     {
-        private readonly IExcelWorkerService _excelService;
+        private readonly IExcelComparerService _excelComparerService;
 
-        public ExcelValidationController(IExcelWorkerService excelService)
+        public ExcelValidationController(IExcelComparerService excelComparerService, IResponseFactory responseFactory)
+            : base(responseFactory)
         {
-            _excelService = excelService;
+            _excelComparerService = excelComparerService;
         }
 
         [HttpGet]
@@ -29,12 +32,19 @@ namespace ExcelParser.Core.Controllers
         [AssignActionRoute(ExcelSegment.ValidateExcel)]
         public async Task<ActionResult> Validate(IFormFile file)
         {
-            if (file == null)
+            try
             {
-                return BadRequest(new { value = "No file was send" });
+                OperationResult result = await _excelComparerService.CompareExcelDocument(file);
+                if (result.Success)
+                {
+                    return Ok(SuccessResponseBody(result));
+                }
+                return BadRequest(ErrorResponseBody(result.MessageList.ToString(), System.Net.HttpStatusCode.BadRequest));
             }
-
-            return Ok();
+            catch (System.Exception exc)
+            {
+                return BadRequest(ErrorResponseBody(exc.Message, System.Net.HttpStatusCode.BadRequest));
+            }
         }
     }
 }

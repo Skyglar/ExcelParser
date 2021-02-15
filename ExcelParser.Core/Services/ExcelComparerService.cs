@@ -6,6 +6,7 @@ using ExcelParser.Domain.Repository.Contracts;
 using IronXL;
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace ExcelParser.Core.Services
@@ -22,7 +23,6 @@ namespace ExcelParser.Core.Services
             _validator = validator;
         }
 
-        // Keep track of changed cells in some kind of array
         public Task<OperationResult> CompareExcelDocument(IFormFile file)
              => Task.Factory.StartNew(() =>
              {
@@ -30,12 +30,14 @@ namespace ExcelParser.Core.Services
 
                  if (result.Success)
                  {
-                     List<Row> rowsFromDb = (List<Row>) _repository.GetAll();
-                     
-                     Worksheet worksheet = WorkBookHelper.ConvertFileToWorkbook(file);
+                     WorkBook workBook = WorkBookHelper.ConvertFileToWorkbook(file);
+                     WorkSheet worksheet = workBook.DefaultWorkSheet;
 
+                     List<Row> rowsFromDb = (List<Row>)_repository.GetAll();
+                     WorkSheet dbWorksheet = new WorkbookBuilder().CreateWorkBook(rowsFromDb).DefaultWorkSheet;
 
-                     SetRedColor();
+                     List<Cell> changedCells = (List<Cell>) FindChangedCells(worksheet, dbWorksheet);
+                     SetRedColor(changedCells);
 
                      workBook.SaveAs(file.FileName);
                  }
@@ -43,12 +45,49 @@ namespace ExcelParser.Core.Services
                  return result;
              });
 
-        private void SetRedColor(Cell[] cells)
+        private void SetRedColor(List<Cell> cells)
         {
             foreach (var cell in cells)
             {
                 cell.Style.Font.Color = "#FF0000";
-            }    
+            }
+        }
+
+        private IEnumerable<Cell> FindChangedCells(WorkSheet currentWorksheet, WorkSheet dbWorksheet)
+        {
+            List<Cell> result = new List<Cell>();
+            for (int i = 2; i < currentWorksheet.RowCount; i++)
+            {
+                Range currentCells = currentWorksheet[$"A{i}:L{i}"];
+                Range dbCells = dbWorksheet[$"A{i}:L{i}"];
+
+                var allData = currentCells.Concat(dbCells);
+
+                var distinctTest = allData
+                        .GroupBy(cell => cell)
+                        .Where(group => group.ToString().Count() == 1)
+                        .Select(group => group.Key);
+
+                result.AddRange(distinctTest);
+            }
+
+            //LinkedList<Cell> result = new LinkedList<Cell>();
+            //foreach (var currentCell in currentCells)
+            //{
+            //    foreach (var dbCell in dbCells)
+            //    {
+            //        if (currentCell.Address.ColumnsCount)
+            //        {
+
+            //        }
+            //        if (!currentCell.ToString().Equals(dbCell.ToString()))
+            //        {
+            //            result.AddLast(currentCell);
+            //        }
+            //    }
+            //}
+
+            return result;
         }
     }
 }

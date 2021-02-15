@@ -9,5 +9,6 @@ namespace ExcelParser.Common.ResponseBuilder
         public const string DeleteFailed = "Row was not deleted";
         public const string UpdateFailed = "Update operation was failed";
         public const string AddFailed = "Adding operation was failed";
+        public const string WorkBookError = "Error creating workbook";
     }
 }
