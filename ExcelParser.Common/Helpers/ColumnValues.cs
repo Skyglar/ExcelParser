@@ -4,39 +4,29 @@ namespace ExcelParser.Common.Helpers
 {
     public sealed class ColumnValues
     {
-        private static readonly List<string> _headerCells = new List<string>()
+        public List<string> HeaderCells
         {
-            "Hie",
-            "IDX",
-            "Level",
-            "Parent",
-            "Node",
-            "Description",
-            "Method",
-            "Contains_Att",
-            "Contains_Val",
-            "Between_Att",
-            "Between_Lo",
-            "Between_Hi"
-        };
-
-        private static readonly List<string> _letters = new List<string>()
-        {
-            "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"
-        };
-
-        // TODO Think should these methods be a static
-        public static List<string> GetHeaderList()
-        {
-            return new List<string>(_headerCells);
+            get
+            {
+                return new List<string>()
+                {
+                    "Hie",
+                    "IDX",
+                    "Level",
+                    "Parent",
+                    "Node",
+                    "Description",
+                    "Method",
+                    "Contains_Att",
+                    "Contains_Val",
+                    "Between_Att",
+                    "Between_Lo",
+                    "Between_Hi"
+                };
+            }
         }
 
-        public static List<string> GetLettersList()
-        {
-            return new List<string>(_letters);
-        }
-
-        public static List<string> GetColumnAdresses(int rowIndex)
+        public List<string> GetColumnAdresses(int rowIndex)
         {
             return new List<string>()
             {

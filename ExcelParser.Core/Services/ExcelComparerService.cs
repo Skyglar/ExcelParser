@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 
 namespace ExcelParser.Core.Services
 {
-    // TODO Come up with different names
     public sealed class ExcelComparerService : IExcelComparerService
     {
         private readonly ISpreadsheetRepository _repository;
@@ -23,8 +22,8 @@ namespace ExcelParser.Core.Services
             _validator = validator;
         }
 
-        public Task<OperationResult> CompareExcelDocument(IFormFile file)
-             => Task.Factory.StartNew(() =>
+        public Task<OperationResult> CompareExcelDocument(IFormFile file) =>
+             Task.Factory.StartNew(() =>
              {
                  OperationResult result = _validator.ValidateExcelDocument(file);
 
@@ -36,7 +35,7 @@ namespace ExcelParser.Core.Services
                      List<Row> rowsFromDb = (List<Row>)_repository.GetAll();
                      WorkSheet dbWorksheet = new WorkbookBuilder().CreateWorkBook(rowsFromDb).DefaultWorkSheet;
 
-                     List<Cell> changedCells = (List<Cell>) FindChangedCells(worksheet, dbWorksheet);
+                     List<Cell> changedCells = (List<Cell>)FindChangedCells(worksheet, dbWorksheet);
                      SetRedColor(changedCells);
 
                      workBook.SaveAs(file.FileName);

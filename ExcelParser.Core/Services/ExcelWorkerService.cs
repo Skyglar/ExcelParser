@@ -1,4 +1,4 @@
-﻿using ExcelParser.Common.Extentions;
+﻿using ExcelParser.Common.Extensions;
 using ExcelParser.Common.Helpers;
 using ExcelParser.Common.ResponseBuilder;
 using ExcelParser.Common.Validation.Contracts;
@@ -8,7 +8,6 @@ using ExcelParser.Domain.Repository.Contracts;
 using IronXL;
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
-using System.IO;
 using System.Threading.Tasks;
 
 namespace ExcelParser.Core.Services
@@ -97,8 +96,8 @@ namespace ExcelParser.Core.Services
                 return result;
             });
 
-        public Task<OperationResult> CreateExcelDocument(List<Row> rows)
-            => Task.Factory.StartNew(() =>
+        public Task<OperationResult> CreateExcelDocument(List<Row> rows) => 
+            Task.Factory.StartNew(() =>
             {
                 OperationResult result = new OperationResult();
                 WorkBook workbook = new WorkbookBuilder().CreateWorkBook(rows);
@@ -106,6 +105,7 @@ namespace ExcelParser.Core.Services
                 {
                     result.Success = false;
                     result.AddMessage(ResponseMessages.WorkBookError);
+                    return result;
                 }
                 // TODO safe name of file
                 workbook.SaveAs("example_workbook.xlsx");

@@ -2,12 +2,11 @@
 using ExcelParser.Domain.Entities;
 using IronXL;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
-namespace ExcelParser.Common.Extentions
+namespace ExcelParser.Common.Extensions
 {
-    public static class Extentions
+    public static class Extensions
     {
         public static LinkedList<Row> ToRowEntityList(this WorkSheet worksheet)
         {
@@ -18,11 +17,6 @@ namespace ExcelParser.Common.Extentions
                 rowList.AddLast(RowFactory.CreateRowFromCells(row.ToArray()));
             }
             return rowList;
-        }
-
-        public static bool CompareCells(this Cell cell, Cell cmpCell)
-        {
-            return cell.ToString().Equals(cmpCell.ToString());
         }
     }
 }
